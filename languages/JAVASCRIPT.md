@@ -24,13 +24,7 @@ Ace's goal is to create a browser based editor that matches and extends the feat
 [Check out the live demo](http://ace.c9.io/).
 
 ---
-[**AR.js**](https://github.com/jeromeetienne/AR.js) — Augmented Reality for the Web
 
-Efficient Augmented Reality for the Web built on A-Frame.
-
-![AR.js](https://user-images.githubusercontent.com/252962/27472386-0d11e59a-57f3-11e7-9fa5-34332c5484f7.png)
-
----
 [**async**](https://github.com/caolan/async)  —  a utility module which provides straight-forward, powerful functions for working with asynchronous JavaScript. Although originally designed for use with Node.js and installable via npm install --save async, it can also be used directly in the browser.
 
 ![async](https://cdn-images-1.medium.com/max/720/0*MB_a8lRqGYBy276_.jpg)
@@ -196,6 +190,11 @@ The project's site: https://insomnia.rest/
 ![](https://camo.githubusercontent.com/de0532955fea66f17b749ef96c7efdbfad2e8bd2/687474703a2f2f692e696d6775722e636f6d2f547665617065372e706e67)
 
 ---
+[**Leaflet**](https://github.com/Leaflet/Leaflet) — The leading open-source JavaScript library for mobile-friendly interactive maps.
+
+![leaflet](https://camo.githubusercontent.com/1a8472d37458cb6e12c17497d95f7752b7e63d0b60f95c507863efca493a04d3/68747470733a2f2f7261776769742e636f6d2f4c6561666c65742f4c6561666c65742f6d61737465722f7372632f696d616765732f6c6f676f2e737667)
+
+---
 [**lodash**](https://github.com/lodash/lodash) — A modern JavaScript utility library delivering modularity, performance, & extras.
 
 ![lodash](http://imgur.com/dIzDcos.png)
@@ -322,10 +321,7 @@ db.replicate.to('http://example.com/mydb');
 
 reveal.js comes with a broad range of features including [nested slides](https://github.com/hakimel/reveal.js#markup), [Markdown contents](https://github.com/hakimel/reveal.js#markdown), [PDF export](https://github.com/hakimel/reveal.js#pdf-export), [speaker notes](https://github.com/hakimel/reveal.js#speaker-notes) and a [JavaScript API](https://github.com/hakimel/reveal.js#api). There's also a fully featured visual editor and platform for sharing reveal.js presentations at [slides.com](https://slides.com?ref=github).
 
----
-[**ReLaXed**](https://github.com/RelaxedJS/ReLaXed) creates PDF documents interactively using HTML or Pug (a shorthand for HTML). It allows complex layouts to be defined with CSS and JavaScript, while writing the content in a friendly, minimal syntax close to Markdown or LaTeX.
 
-![ReLaXed](https://raw.githubusercontent.com/RelaxedJS/ReLaXed/master/logo-blue.png)
 
 ## S
 
@@ -344,7 +340,7 @@ reveal.js comes with a broad range of features including [nested slides](https:/
 ![strider](https://cdn-images-1.medium.com/max/720/0*xth8wmt1O-zAf3Hy.jpg)
 
 ---
-[**Svelte**](https://github.com/sveltejs/svelte) — Svelte is a UI framework of sorts that borrows a lot or the great ideas from some of its peers like React and Vue.js, but brings about its own interesting ideas to the table. Plus, it’s not entirely a framework in the sense that we’re used to and is perhaps better seen as a compiler.
+[**Svelte**](https://github.com/sveltejs/svelte) — Svelte is a UI framework of sorts that borrows a lot of the great ideas from some of its peers like React and Vue.js, but brings about its own interesting ideas to the table. Plus, it’s not entirely a framework in the sense that we’re used to and is perhaps better seen as a compiler.
 
 
 ![svelte](https://svelte.dev/svelte-logo-horizontal.svg)
@@ -423,10 +419,6 @@ The Framework uses new event-driven compute services, like AWS Lambda, Google Cl
 
 WebTorrent is a streaming torrent client for node.js and the browser.
 
----
-[**Wintersmith**](https://github.com/jnordberg/wintersmith) — A simple yet flexible static site generator. It takes contents (markdown, less, scripts, etc), transforms them using plugins and outputs a static website (html, css, images, etc) that you can host anywhere.
-
-![wintersmith](http://wintersmith.io/images/wintersmith.svg)
 
 ## Y
 

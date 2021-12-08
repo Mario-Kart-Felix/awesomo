@@ -10,13 +10,15 @@
 
 <br>
 
-## C
+## B
 
-[**cachex**](https://github.com/whitfin/cachex) A powerful caching library for Elixir with support for transactions, fallbacks and expirations.
+[**broadway**](https://github.com/dashbitco/broadway) Concurrent and multi-stage data ingestion and data processing with Elixir.
 
 ---
 
-[**Cog**](https://github.com/operable/cog) brings the power of the command line to the place you collaborate with your team all the time -- your chat window. Powerful access control means you can collaborate around even the most sensitive tasks with confidence. A focus on extensibility and adaptability means that you can respond quickly to the unexpected, without your team losing visibility.
+## C
+
+[**cachex**](https://github.com/whitfin/cachex) A powerful caching library for Elixir with support for transactions, fallbacks and expirations.
 
 ---
 
@@ -32,18 +34,6 @@
 Every alchemist requires good tools, and one of the greatest tools in the alchemist’s disposal is the distillery. The purpose of the distillery is to take something and break it down to it’s component parts, reassembling it into something better, more powerful. That is exactly what this project does — it takes your Mix project and produces an Erlang/OTP release, a distilled form of your raw application’s components; a single package which can be deployed anywhere, independently of an Erlang/Elixir installation. No dependencies, no hassle.
 
 This is a pure-Elixir, dependency-free implementation of release generation for Elixir projects. It is currently a standalone package, but may be integrated into Mix at some point in the future.
-
----
-
-## E
-
-[**emel**](https://github.com/mrdimosthenis/emel) Turn data into functions! A simple and functional machine learning library written in elixir.
-
----
-
-[**ex_admin** ](https://github.com/smpallen99/ex_admin) —  an add on for an application using the Phoenix Framework to create an CRUD administration tool with little or no code. By running a few mix tasks to define which Ecto Models you want to administer, you will have something that works with no additional code.
-
-![ex_admin](https://camo.githubusercontent.com/b67ecbe1c05460a6b838bec9f33286bec9a5db8a/687474703a2f2f657861646d696e2e696e666f2f646f632f65785f61646d696e5f626c75652e706e67)
 
 ---
 
@@ -147,31 +137,6 @@ The core currency of authentication in Guardian is JSON Web Tokens (JWT). You ca
 
 ## H
 
-[**hound**](https://github.com/HashNuke/hound)  — an  Elixir library for writing integration tests and browser automation.
-
-ExUnit example:
-```elixir
-defmodule HoundTest do
-  use ExUnit.Case
-  use Hound.Helpers
-
-  hound_session
-
-  test "the truth", meta do
-    navigate_to("http://example.com/guestbook.html")
-
-    element = find_element(:name, "message")
-    fill_field(element, "Happy Birthday ~!")
-    submit_element(element)
-
-    assert page_title() == "Thank you"
-  end
-
-end
-```
-
----
-
 [**httpoison** ](https://github.com/edgurgel/httpoison) —  yet another HTTP client for Elixir powered by hackney.
 
 ![httpoison](https://camo.githubusercontent.com/e7895297ccdfb59b971ea721eb617dc0faa9d94d/687474703a2f2f692e696d6775722e636f6d2f5777714e384a4f2e706e67)
@@ -186,146 +151,15 @@ end
 
 ---
 
-## M
-
-[**maru**](https://github.com/elixir-maru/maru)  — an  Elixir RESTful Framework
-
-Example:
-
-```elixir
-defmodule Router.User do
-  use Maru.Router
-
-  namespace :user do
-    route_param :id do
-      get do
-        json(conn, %{ user: params[:id] })
-      end
-
-      desc "description"
-      params do
-        requires :age,    type: Integer, values: 18..65
-        requires :gender, type: Atom, values: [:male, :female], default: :female
-        group    :name,   type: Map do
-          requires :first_name
-          requires :last_name
-        end
-        optional :intro,  type: String, regexp: ~r/^[a-z]+$/
-        optional :avatar, type: File
-        optional :avatar_url, type: String
-        exactly_one_of [:avatar, :avatar_url]
-      end
-      post do
-        ...
-      end
-    end
-  end
-end
-
-defmodule Router.Homepage do
-  use Maru.Router
-
-  resources do
-    get do
-      json(conn, %{ hello: :world })
-    end
-
-    mount Router.User
-  end
-end
-
-
-defmodule MyAPP.API do
-  use Maru.Router
-
-  before do
-    plug Plug.Logger
-    plug Plug.Static, at: "/static", from: "/my/static/path/"
-  end
-
-  plug Plug.Parsers,
-    pass: ["*/*"],
-    json_decoder: Poison,
-    parsers: [:urlencoded, :json, :multipart]
-
-  mount Router.Homepage
-
-  rescue_from Unauthorized, as: e do
-    IO.inspect e
-
-    conn
-    |> put_status(401)
-    |> text("Unauthorized")
-  end
-
-  rescue_from [MatchError, RuntimeError], with: :custom_error
-
-  rescue_from :all do
-    conn
-    |> put_status(500)
-    |> text("Server Error")
-  end
-
-  defp custom_error(conn, exception) do
-    conn
-    |> put_status(500)
-    |> text(exception.message)
-  end
-end
-```
-
----
-
-[**Maxwell**](https://github.com/zhongwencool/maxwell) is an HTTP client that provides a common interface over `:httpc`, `:ibrowse`, `:hackney`.
-
-Usage:
-
-Use Maxwell.Builder module to create the API wrappers.
-```elixir
-defmodule GitHubClient do
-  #generate 4 function get/1, get!/1 patch/1 patch!/1 function
-  use Maxwell.Builder, ~w(get patch)a
-
-  middleware Maxwell.Middleware.BaseUrl, "https://api.github.com"
-  middleware Maxwell.Middleware.Headers, %{'Content-Type': "application/vnd.github.v3+json", 'User-Agent': 'zhongwenool'}
-  middleware Maxwell.Middleware.Opts, [connect_timeout: 3000]
-  middleware Maxwell.Middleware.Json
-  middleware Maxwell.Middleware.Logger
-
-  adapter Maxwell.Adapter.Hackney # default adapter is Maxwell.Adapter.Httpc
-
-  #List public repositories for the specified user.
-  #:hackney.request(:get,
-  #                'https://api.github.com/users/zhongwencool/repos',
-  #                ['Content-Type': "application/vnd.github.v3+json", 'User-Agent': 'zhongwenool'],
-  #                [],
-  #                [connect_timeout: 3000])
-  def user_repos(username) do
-    put_path("/users/" <> username <> "/repos") |> get
-  end
-
-  # Edit owner repositories
-  # :hackney.request(:patch,
-  #                  'https://api.github.com/repos/owner/repo',
-  #                  ['Content-Type': "application/vnd.github.v3+json", 'User-Agent': 'zhongwenool'],
-  #                  "{\"name\":\"name\",\"description\":\"desc\"}",
-  #                  [connect_timeout: 3000])
-  def edit_repo_desc(owner, repo, name, desc) do
-    new
-    |> put_path("/repos/#{owner}/#{repo}")
-    |> put_req_body(%{name: name, description: desc})
-    |> patch
-  end
-end
-```
-
----
-
 ## P
 
 [**Phoenix**](http://www.phoenixframework.org/)  —  Productive. Reliable. Fast. A productive web framework that does not compromise speed and maintainability.
 
 ![phoenix](https://raw.githubusercontent.com/phoenixframework/phoenix/master/priv/static/phoenix.png)
+
+[**Plausible**](https://github.com/plausible/analytics)  -  Simple, open-source, lightweight (< 1 KB) and privacy-friendly web analytics alternative to Google Analytics.
+
+![plausible](https://raw.githubusercontent.com/plausible/analytics/master/assets/static/images/icon/plausible_logo.png)
 
 ---
 
